@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
+        import { getAuth } from "firebase/auth";
+        import { getFirestore } from "firebase/firestore";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDDXKmEcsazLz5tUMrK5BV4KVjmz7PPva4",
+          authDomain: "charity-world-map.firebaseapp.com",
+          projectId: "charity-world-map",
+          storageBucket: "charity-world-map.appspot.com",
+          messagingSenderId: "732326362074",
+          appId: "1:732326362074:web:2d3e0e137285676b329ee3",
+          measurementId: "G-S6KMJ1LDJM"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+      </script>
+      <script src="app.js" defer></script>  
+</head>
+<body>
+    
+</body>
+</html>
+
+        missions: {
+          Amsterdam: {
+            description: "Help Jonathan",
+            coordinates: {
+              lat: 52.3676,
+              long: 4.9041
+            },
+            location: "Amsterdam",
+            geohash: ""
+          },
+          Berlin: {
+            description: "Help Anika",
+            coordinates: {
+              lat: 52.5200,
+              long: 13.4050
+            },
+            location: "Berlin",
+            geohash: ""
+          },
+          Rio_de_Janeiro: {
+            description: "Help Mama",
+            coordinates: {
+              lat: -22.9068,
+              long: -43.1729
+            },
+            location: "Rio de Janeiro",
+            geohash: ""
+          }
+        }
