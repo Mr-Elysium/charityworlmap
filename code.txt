@@ -39,32 +39,20 @@
 </body>
 </html>
 
-        missions: {
-          Amsterdam: {
-            description: "Help Jonathan",
-            coordinates: {
-              lat: 52.3676,
-              long: 4.9041
-            },
-            location: "Amsterdam",
-            geohash: ""
-          },
-          Berlin: {
-            description: "Help Anika",
-            coordinates: {
-              lat: 52.5200,
-              long: 13.4050
-            },
-            location: "Berlin",
-            geohash: ""
-          },
-          Rio_de_Janeiro: {
-            description: "Help Mama",
-            coordinates: {
-              lat: -22.9068,
-              long: -43.1729
-            },
-            location: "Rio de Janeiro",
-            geohash: ""
-          }
-        }
+  charities.map((charity) => {
+    const geohashRef = collection(db, "charities", charity.id, "Missions");
+    const getMissions = async () => {
+      const data = await getDocs(geohashRef);
+      setMissions(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    };
+    getMissions();
+    missions.map((mission) => {
+      const hash = geofire.geohashForLocation([mission.lat, mission.long]);
+      const docRef = doc(db, "charities", charity.id, "Missions", mission.id);
+      updateDoc(docRef, {
+        geohash: hash
+      })
+      return mission;
+    })
+    return charity;
+  })
