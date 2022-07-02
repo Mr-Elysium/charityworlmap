@@ -8,6 +8,7 @@ function App() {
   const [charities, setCharities] = useState([]);
   const [missions, setMissions] = useState({});
   const charitiesCollectionRef = collection(db, 'charities');
+  const hi = 'lol';
 
   useEffect(() => {
     getCharities();
